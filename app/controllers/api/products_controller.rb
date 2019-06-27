@@ -14,9 +14,9 @@ class Api::ProductsController < ApplicationController
     render 'hario_v60_filters.json.jb'
   end
 
-  def query_lookup
+  def lookup
     product_name = params["name"]
     @product = Product.find_by(name: product_name)
-    render 'query_lookup.json.jb'
+    render 'lookup.json.jb'
   end
 end
