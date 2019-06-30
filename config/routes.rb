@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get '/products' => 'products#index'
     get '/products/:id' => 'products#show'
     post '/products' => 'products#create'
+    patch '/products/:id' => 'products#update'
     get '/hario_v60_ceramic_dripper' => 'products#hario_v60_ceramic_dripper'
     get '/hario_v60_filters' => 'products#hario_v60_filters'
     get '/product_lookup_query' => 'products#lookup'

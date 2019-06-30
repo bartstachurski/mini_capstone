@@ -11,13 +11,23 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-      name: params[:name],
-      price: params[:price],
-      image_url: params[:image_url],
-      description: params[:description]
+      name: params[:input_name],
+      price: params[:input_price],
+      image_url: params[:input_image_url],
+      description: params[:input_description]
       )
     @product.save
     render 'create.json.jb'
+  end
+
+  def update
+    @product = Product.find_by(id: params[:id])
+    @product.name = params[:input_name]
+    @product.price = params[:input_price]
+    @product.image_url = params[:input_image_url]
+    @product.description =  params[:input_description]
+    @product.save
+    render 'update.json.jb'
   end
 
   def hario_v60_ceramic_dripper
