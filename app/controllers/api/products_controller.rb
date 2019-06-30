@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
-  def all_products
+  def index
     @products = Product.all
-    render 'all_products.json.jb'
+    render 'index.json.jb'
   end
 
   def hario_v60_ceramic_dripper
