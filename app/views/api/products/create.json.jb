@@ -3,5 +3,6 @@
   price: @product.price,
   image_url: @product.image_url, 
   description: @product.description,
+  instock: @product.instock,
   id: @product.id
 }
