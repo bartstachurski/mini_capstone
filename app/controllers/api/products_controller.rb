@@ -1,3 +1,5 @@
+# need to fix controllers to include the new attribute instock
+
 class Api::ProductsController < ApplicationController
   def index
     @products = Product.all
