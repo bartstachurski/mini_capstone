@@ -2,7 +2,23 @@
 
 class Api::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if params[:search]
+      @products = Product.where("name LIKE ?", "%#{params[:search]}%")
+    else
+      @products = Product.all
+    end
+
+    if params[:discount]
+      @products = @products.where("price < ?", 10)
+    end
+
+    if params[:sort] && params[:sort_order]
+      @products = @products.order(params[:sort] => params[:sort_order])
+    else
+      @products = @products.order(:id => :asc)
+    end
+
+
     render 'index.json.jb'
   end
 
@@ -19,8 +35,11 @@ class Api::ProductsController < ApplicationController
       description: params[:description],
       instock: params[:instock]
       )
-    @product.save
-    render 'create.json.jb'
+    if @product.save
+      render 'create.json.jb'
+    else
+      render 'errors.json.jb', status: :unprocessible_entity
+    end
   end
 
   def destroy
@@ -37,7 +56,11 @@ class Api::ProductsController < ApplicationController
     @product.description =  params[:description] || @product.description
     @product.instock = params[:instock] || @product.instock
     @product.save
-    render 'update.json.jb'
+    if @product.save
+      render 'update.json.jb'
+    else
+      render 'errors.json.jb', status: :unprocessible_entity
+    end   
   end
 
   def hario_v60_ceramic_dripper
