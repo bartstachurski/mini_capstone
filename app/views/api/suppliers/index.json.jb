@@ -1,1 +1,4 @@
-{message: @suppliers}
+# This needs to be finished.
+
+# @suppliers.map do |supplier|
+#   si

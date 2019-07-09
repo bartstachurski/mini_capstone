@@ -2,13 +2,13 @@
   {
     name: product.name, 
     price: product.price,
-    image_url: product.image_url, 
     description: product.description,
     id: product.id,
     is_discounted: product.is_discounted?,
     tax: product.tax,
     instock: product.instock,
     total: product.total,
-    supplier_name: product.supplier
+    supplier_name: product.supplier,
+    images: product.images
   }
 end
