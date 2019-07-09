@@ -5,6 +5,17 @@ Rails.application.routes.draw do
     post '/products' => 'products#create'
     patch '/products/:id' => 'products#update'
     delete '/products/:id' => 'products#destroy'
+    get '/suppliers' => 'suppliers#index'
+    get '/suppliers/:id' => 'suppliers#show'
+    post '/suppliers' => 'suppliers#create'
+    patch '/suppliers/:id' => 'suppliers#update'
+    delete '/suppliers/:id' => 'suppliers#destroy'
+
+
+
+
+
+
     get '/hario_v60_ceramic_dripper' => 'products#hario_v60_ceramic_dripper'
     get '/hario_v60_filters' => 'products#hario_v60_filters'
     get '/product_lookup_query' => 'products#lookup'
