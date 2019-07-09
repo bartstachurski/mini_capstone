@@ -16,6 +16,10 @@ class Product < ApplicationRecord
     price + tax
   end
 
+  def supplier
+    @supplier = Supplier.find_by(id: supplier_id)
+  end
+
   validates :name, presence: true
   validates :name, uniqueness: true
 

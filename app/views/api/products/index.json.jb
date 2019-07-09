@@ -8,6 +8,7 @@
     is_discounted: product.is_discounted?,
     tax: product.tax,
     instock: product.instock,
-    total: product.total
+    total: product.total,
+    supplier_name: product.supplier
   }
 end
