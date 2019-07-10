@@ -3,6 +3,9 @@
 class Api::ProductsController < ApplicationController
 
   def index
+    p "*" * 50
+    p current_user
+    p "*" * 50    
     if params[:search]
       @products = Product.where("name LIKE ?", "%#{params[:search]}%")
     else

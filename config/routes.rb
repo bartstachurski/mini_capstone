@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     patch '/suppliers/:id' => 'suppliers#update'
     delete '/suppliers/:id' => 'suppliers#destroy'
     post '/users' => 'users#create'
+    post '/sessions' => 'sessions#create'
     get '/hario_v60_ceramic_dripper' => 'products#hario_v60_ceramic_dripper'
     get '/hario_v60_filters' => 'products#hario_v60_filters'
     get '/product_lookup_query' => 'products#lookup'
