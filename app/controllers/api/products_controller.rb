@@ -2,6 +2,8 @@
 
 class Api::ProductsController < ApplicationController
 
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
+
   def index
     p "*" * 50
     p current_user
@@ -34,7 +36,8 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      instock: params[:instock]
+      instock: params[:instock],
+      supplier_id: params[:supplier_id]
       )
     if @product.save
       render 'create.json.jb'
@@ -53,7 +56,6 @@ class Api::ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
     @product.description =  params[:description] || @product.description
     @product.instock = params[:instock] || @product.instock
     @product.save

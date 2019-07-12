@@ -8,7 +8,7 @@ class Api::OrdersController < ApplicationController
     product_id: params[:product_id],
     quantity: params[:quantity])
     @order.subtotal = @order.product.price * @order.quantity
-    @order.tax = @order.subtotal * 0.05
+    @order.tax = @order.subtotal * 0.09
     @order.total = @order.subtotal + @order.tax
     @order.save
     render 'create.json.jb'
@@ -17,9 +17,18 @@ class Api::OrdersController < ApplicationController
   def index
     if current_user
       @orders = current_user.orders
+      render 'index.json.jb'
     else
-      @orders = []
+      render json: [], status: :unauthorized
     end
-    render 'index.json.jb'
+  end
+
+  def show
+    if current_user
+      @order = Order.find_by(id: params[:id])
+      render 'show.json.jb'
+    else
+      render json: [], status: :unauthorized
+    end
   end
 end

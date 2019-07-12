@@ -35,6 +35,5 @@ class Product < ApplicationRecord
 
   validates :description, presence: true
   
-  validates :image_url, length: {maximum: 255}
 
 end
