@@ -1,1 +1,8 @@
-{message: "route works"}
+{
+  message: "Order created!",
+  product: @order.product.name,
+  quantity: @order.quantity,
+  subtotal: @order.subtotal,
+  tax: @order.tax,
+  total: @order.total
+}
