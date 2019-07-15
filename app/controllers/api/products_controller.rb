@@ -5,24 +5,30 @@ class Api::ProductsController < ApplicationController
   before_action :authenticate_admin, only: [:create, :update, :destroy]
 
   def index
-    p "*" * 50
-    p current_user
-    p "*" * 50    
-    if params[:search]
-      @products = Product.where("name LIKE ?", "%#{params[:search]}%")
-    else
-      @products = Product.all
+    # p "*" * 50
+    # p current_user
+    # p "*" * 50    
+    # if params[:search]
+    #   @products = Product.where("name LIKE ?", "%#{params[:search]}%")
+    # else
+    #   @products = Product.all
+    # end
+
+    # if params[:discount]
+    #   @products = @products.where("price < ?", 10)
+    # end
+
+    # if params[:sort] && params[:sort_order]
+    #   @products = @products.order(params[:sort] => params[:sort_order])
+    # else
+    #   @products = @products.order(:id => :asc)
+    # end
+
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
     end
 
-    if params[:discount]
-      @products = @products.where("price < ?", 10)
-    end
-
-    if params[:sort] && params[:sort_order]
-      @products = @products.order(params[:sort] => params[:sort_order])
-    else
-      @products = @products.order(:id => :asc)
-    end
     render 'index.json.jb'
   end
 
