@@ -10,6 +10,6 @@
     total: product.total,
     supplier_name: product.supplier,
     images: product.images,
-    categories: product.categories(:name)
+    categories: product.categories
   }
 end
