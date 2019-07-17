@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     get '/hario_v60_filters' => 'products#hario_v60_filters'
     get '/product_lookup_query' => 'products#lookup'
     get '/product_lookup_segment/:name' => 'products#lookup'
+    get '/carted_products' => 'carted_products#create'
   end
 end
