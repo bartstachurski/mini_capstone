@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get '/product_lookup_segment/:name' => 'products#lookup'
     post '/carted_products' => 'carted_products#create'
     get '/carted_products' => 'carted_products#index'
-
   end
+  get '/products' => 'products#index'
+  get '/products/:id' => 'products#show'
 end
