@@ -1,0 +1,24 @@
+<form action="/products" method="post">
+  <p>name: <input type="text" name="name"></p>
+  <p>price: <input type="text" name="price"></p>
+  <p>description: <input type="text" name="description"></p>
+  <p>supplier_id: <input type="text" name="supplier_id"></p>
+  <input type="submit" value="Create new product">
+</form>
+
+
+
+
+
+
+
+
+<!--   create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 6, scale: 2
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "instock"
+    t.integer "supplier_id"
+  end -->
