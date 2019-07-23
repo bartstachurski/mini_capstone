@@ -3,4 +3,5 @@
 <p> Description: <%= @product.description %> </p>
 <p> Instock: <%= @product.instock? %> </p>
 <p> <a href="/products">Back to all products</a>
-<hr>
+<p> <a href="/products/<%= @product.id %>/edit">Edit this product</a>
+<a href="/products/<% @product.id %>" data-method="delete" rel="nofollow">Delete product</a>
