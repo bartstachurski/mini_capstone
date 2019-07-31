@@ -13,6 +13,14 @@ class Product < ApplicationRecord
     end
   end
 
+  def image_url
+    if images.length > 0
+      return images[0].url
+    else
+      return "https://www.roastycoffee.com/wp-content/uploads/coffee-espresso.jpg"
+    end
+  end
+  
   def tax
     tax_rate = 0.09
     price * tax_rate
@@ -26,16 +34,16 @@ class Product < ApplicationRecord
     @supplier = Supplier.find_by(id: supplier_id)
   end
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  # validates :name, presence: true
+  # validates :name, uniqueness: true
 
 
-  validates :price, presence: true
-  validates :price, numericality: {less_than: 1000000}
-  validates :price, numericality: {greater_than: 0}
+  # validates :price, presence: true
+  # validates :price, numericality: {less_than: 1000000}
+  # validates :price, numericality: {greater_than: 0}
 
 
-  validates :description, presence: true
+  # validates :description, presence: true
   
 
 end

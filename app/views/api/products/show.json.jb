@@ -8,5 +8,6 @@
   instock: @product.instock,
   total: @product.total,
   supplier_name: @product.supplier.name,
-  images: @product.images
+  image_url: @product.image_url
+  # images: @product.images
 }
