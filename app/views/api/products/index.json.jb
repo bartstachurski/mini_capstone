@@ -9,7 +9,8 @@
     instock: product.instock,
     total: product.total,
     supplier_name: product.supplier,
-      image_url: product.image_url,
+    image_url: product.image_url,
+    supplier_id: product.supplier_id,
     # images: product.images,
     categories: product.categories
   }
