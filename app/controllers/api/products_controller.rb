@@ -48,7 +48,8 @@ class Api::ProductsController < ApplicationController
     if @product.save
       render 'create.json.jb'
     else
-      render 'errors.json.jb', status: :unprocessible_entity
+      # render 'errors.json.jb', status: :unprocessible_entity
+      render json: {errors: @product.errors.full_messages}, status: :unprocessible_entity
     end
   end
 
@@ -68,7 +69,8 @@ class Api::ProductsController < ApplicationController
     if @product.save
       render 'update.json.jb'
     else
-      render 'errors.json.jb', status: :unprocessible_entity
+      # render 'errors.json.jb', status: :unprocessible_entity
+      render json: {errors: @product.errors.full_messages}, status: :unprocessible_entity
     end   
   end
 
